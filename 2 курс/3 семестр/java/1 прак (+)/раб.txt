@@ -1,0 +1,17 @@
+package vehicles;
+
+public abstract class Vehicle {
+
+    public String model;
+    public String license;
+    public String color;
+    public int year;
+    public String ownerName;
+    private String engineType
+    
+    public abstract String vehicleType(){
+        return this.engineType;
+    };
+    public void set
+
+}

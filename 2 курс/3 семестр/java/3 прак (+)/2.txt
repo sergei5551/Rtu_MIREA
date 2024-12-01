@@ -1,0 +1,8 @@
+package vehicles;
+
+public class ElectricCar extends Car{
+    public ElectricCar(){
+        this.engineType = "Electric engine";
+    }
+    private int batteryCapacity;
+}

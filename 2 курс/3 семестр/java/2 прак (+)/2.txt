@@ -1,0 +1,91 @@
+import java.util.Scanner;
+
+class Car{
+    Scanner input = new Scanner(System.in);
+    public Car(){ // Конструктор по умолчанию
+    }
+
+    public Car(String model, String license, String color, int year){ // Конструктор со всеми полями
+        this.model = model;
+        this.license = license;
+        this.color = color;
+        this.year = year;
+    }
+
+    public Car(String A){ // Конструктор с выбором поля
+        System.out.println("Какое поле заполнить?");
+        String zn = input.next();
+        if (zn == "model"){
+            this.model = A;
+        }
+        else if(zn == "license"){
+            this.license = A;
+        }
+        else if(zn == "color"){
+            this.color = A;
+        }
+        else{
+            System.out.println("Запрос не понятен");
+            this.model = "Lada";
+        }
+    }
+
+    String model = "Lada";
+    String license = "М104КТ";
+    String color = "Grey";
+    int year = 1997;
+    static final int current_year = 2024;
+
+    public void To_String(){
+        System.out.printf("Модель: %s\n", model);
+        System.out.printf("Номер: %s\n", license);
+        System.out.printf("Цвет: %s\n", color);
+        System.out.printf("Год: %d\n", year);
+    }
+
+    // Геттеры ---------------------------------
+    public int getAge(){
+        return current_year - year;
+    }
+    public String getModel() {
+        return model;
+    }
+
+    public String getLicense() {
+        return license;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public String getColor() {
+        return color;
+    }
+    //-------------------------------------------
+    // Сеттеры ----------------------------------
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setLicense(String license) {
+        this.license = license;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+    // -----------------------------------------
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.To_String();
+
+    }
+}

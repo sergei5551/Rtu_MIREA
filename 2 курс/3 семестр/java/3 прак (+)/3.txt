@@ -1,0 +1,14 @@
+package app;
+import vehicles.Car;
+import vehicles.ElectricCar;
+
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car();
+        ElectricCar el_car = new ElectricCar();
+
+        car.setEngineType("Diesel engine");
+        System.out.println(car.getEngineType());
+        System.out.println(el_car.getEngineType());
+    }
+}
