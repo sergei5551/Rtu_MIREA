@@ -1,0 +1,97 @@
+# 1
+from math import sqrt
+def f(n,m,a):
+ su = 0
+ for c in range(1, a+1):
+  for j in range(1, m + 1):
+   for i in range(1, n + 1):
+ 
+    su =(pow(28*c**2,6)/5 + 16*pow(j**3/44 + 1**2, 5))
+ return su
+print (f"f1(): {f( 4, 2, 8)}")
+# 2
+
+def f2(y, z):
+ d = 0
+ for i in range(len(y)):
+  d += ((y[i] - z[i])**2)
+ return sqrt(d)
+print(f"f2(): {f2( [1,0,5,1], [0,5,2,1])}")
+#3
+def f3(y, z):
+ d = 0
+ for i in range(len(y)):
+  d += (abs(y[i] - z[i]))
+ return d
+print(f"f3(): {f3( [1,0.5,1], [0.5, 2, 1])}")
+# 4
+def f4(y, z):
+ d = 0
+ for i in range(len(y)):
+  if d < abs(y[i] - z[i]):
+   d = (abs(y[i] - z[i]))
+ return d
+print(f"f4(): {f4( [1,0.5,1], [0.5, 2, 1])}")
+ 
+# 5
+def f5(y, z):
+ d = 0
+ for i in range(len(y)):
+  d += ((y[i] - z[i])**2)
+ return d
+print(f"f5(): {f5( [1,0.5,1], [0.5, 2, 1])}")
+# 6
+def f6(y, z):
+ d = 0; h = 5
+ for i in range(len(y)):
+  d += (abs(y[i] - z[i])**h)
+ return pow(d, 1/h)
+print(f"f6(): {f6( [1,0.5,1], [0.5, 2, 1])}")
+# 7
+'''
+import matplotlib.pyplot as plt
+
+
+def visualize(distance_metrics, y, z, move=1.0):
+    moved_z = [i + move for i in z]
+    distance_differences = []
+    for distance in distance_metrics:
+        distance_before_move = distance(y, z)
+        distance_after_move = distance(y, moved_z)
+        distance_difference = distance_after_move - distance_before_move
+        distance_differences.append(distance_difference)
+    x = range(0, len(distance_differences))
+    figure, axis = plt.subplots()
+    axis.bar(x, distance_differences)
+    axis.set_xticks(x, labels=[f'd_{i + 1}' for i in x])
+    plt.show()
+
+
+list = (d1, d2, d3, d4, d5)
+visualize(list, y, z, 1.5)
+'''
+# 8
+
+words = ["language!", "programming", "Python", "the", "love", "I"]
+
+message = " ".join(words[::-1])
+print(message)
+
+# 9
+
+def f(s, c):
+    return s.lower().count(c)
+
+
+def count_characters(string):
+    new_string = string.lower().replace(' ', '')
+    dictionary = {}
+    for char in new_string:
+        if char in dictionary:
+            dictionary[char] += 1
+        else:
+            dictionary[char] = 1
+    return dictionary
+
+
+print(count_characters(message))
