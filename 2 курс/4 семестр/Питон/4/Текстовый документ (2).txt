@@ -1,0 +1,27 @@
+def decode_val(len_s, val, b_code):
+    res = ""
+    for i in range(0,len_s,val):
+        if (b_code[i:i+val].count("0")) >=2:
+            res += '0'
+        else:
+            res += '1'
+    return res
+
+
+list_num = [815608, 2064837, 2093080, 2063879, 196608, 2067983, 10457031, 1830912, 
+2067455, 2093116, 1044928, 2064407, 6262776, 2027968, 4423680, 2068231, 2068474, 
+1999352, 1019903, 2093113, 2068439, 2064455, 1831360, 1936903, 2067967, 2068456]
+
+
+triad = 3 # Берем триады
+b_list = list() # Инициализация списка для бинарных значений
+
+for i in range(len(list_num)): # Создание списка с бинарным значением из списка с числами
+    b_list.append(bin(list_num[i])[2:])
+    
+    for j in range(1, len(b_list[i]) % triad):
+        b_list[i] = '0' + b_list[i]
+strochca = ""
+for i in range(len(b_list)):
+    strochca += chr(int( decode_val(len(b_list[i]), triad, b_list[i]), base=2))+" "
+print(strochca)

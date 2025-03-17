@@ -1,0 +1,42 @@
+#1
+import re
+text = "Contact us at support@example.com or sales@example.org for more info."
+emails = re.findall(r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+', text)
+print(emails)
+#2
+text = "You can reach us at +7 (912) 345-67-89 or +7 (901) 234-56-78 during business hours."
+numbers = re.findall(r'\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}', text)
+print(numbers)
+#3
+text = "Join the discussion on #python and share your thoughts on #regex. Don't forget to tag #coding!"
+hashtags = re.findall(r'#\w+', text)
+print(hashtags)
+#4
+text = "Visit our website at https://example.com or check out http://test.org for more details."
+link = re.findall(r'http[s]?:\/\/\S+', text)
+print(link)
+#5
+text = "The total cost is 150 dollars, but you can get a discount of 25 if you buy 3 items."
+num = re.findall(r'[0-9]+', text)
+print(num)
+#6
+text = "The project deadline is 15/10/2023, and the final review will be on 20/12/2023."
+date = re.findall(r'[0-9]+/[0-9]+/[0-9]+', text)
+print(date)
+#7 
+text = "Python is a popular programming language. Learn Regex to improve your Skills."
+reg_sumb = re.findall(r'[A-Z][a-z]+', text)
+print(reg_sumb)
+#8 
+text = "The server IPs are 192.168.1.1, 10.0.0.1, and 8.8.8.8. Avoid using invalid IPs like 999.999.999.999."
+ip = re.findall(r'(?:25[0-5]|2[0-4]\d|1?\d\d?\.){3}(?:25[0-5]|2[0-4]\d|1?\d\d?)', text)
+print(ip)
+#9 
+text = "The meeting starts at 14:30 and ends at 16:45. Please arrive by 14:15."
+time = re.findall(r'[0-9]{2}:[0-9]{2}', text)
+print(time)
+
+#10 
+text = "She is singing and dancing while cooking dinner. The evening is full of fun activities."
+word = re.findall(r'[a-zA-Z]+ing', text)
+print(word)
