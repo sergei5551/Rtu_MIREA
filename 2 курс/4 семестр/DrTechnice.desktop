@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=DeTechnic
+Exec=xdg-open https://github.com/DrTECHNIC
+Icon=web-browser
+Categories=Network;
+Comment=
+Path=
+Terminal=false
+StartupNotify=false
