@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=DeTechnic
+Exec=xdg-open https://chartdb.mirea.dev/diagrams/f9u3bycj5w8g
+Icon=web-browser
+Categories=Network;
+Comment=
+Path=
+Terminal=false
+StartupNotify=false
