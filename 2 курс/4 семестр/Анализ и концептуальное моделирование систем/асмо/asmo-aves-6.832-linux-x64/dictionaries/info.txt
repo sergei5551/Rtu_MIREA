@@ -1,0 +1,18 @@
+Используются словари для LibreOffice:
+
+словарь русского языка:
+https://github.com/LibreOffice/dictionaries/blob/master/ru_RU/ru_RU.dic
+https://github.com/LibreOffice/dictionaries/blob/master/ru_RU/ru_RU.aff
+
+словарь английского языка:
+https://github.com/LibreOffice/dictionaries/blob/master/en/en_US.dic
+https://github.com/LibreOffice/dictionaries/blob/master/en/en_US.aff
+
+
+Альтернативные вырианты:
+
+Новый орфографический словарь русского языка (v0.4.5 06.06.2020) 
+https://extensions.libreoffice.org/en/extensions/show/russian-spellcheck-dictionary.-based-on-works-of-aot-group
+
+English dictionaries for LibreOffice 4.0+ (v2024.03.01)
+https://extensions.libreoffice.org/en/extensions/show/english-dictionaries
