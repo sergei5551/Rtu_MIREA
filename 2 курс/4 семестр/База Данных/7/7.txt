@@ -1,0 +1,2 @@
+Хост для подключения: 7bd8a-rw.db.pub.dbaas.postgrespro.ru (порт: 5432)
+База данных: dbstud
