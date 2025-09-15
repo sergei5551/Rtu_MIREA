@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config date="1756659687935" transient="false">
+	<site updateable="true" url="platform:/base/" enabled="true" policy="USER-EXCLUDE">
+		<feature id="org.jkiss.dbeaver.ce.feature" version="25.2.0.202508311659" url="features/org.jkiss.dbeaver.ce.feature_25.2.0.202508311659/" plugin-identifier="org.jkiss.dbeaver.ui.app.standalone">
+		</feature>
+		<feature id="org.jkiss.dbeaver.ui.extra.feature" version="25.2.0.202508311659" url="features/org.jkiss.dbeaver.ui.extra.feature_25.2.0.202508311659/">
+		</feature>
+		<feature id="org.jkiss.dbeaver.runtime.feature" version="25.2.0.202508311659" url="features/org.jkiss.dbeaver.runtime.feature_25.2.0.202508311659/" plugin-identifier="org.jkiss.dbeaver.model">
+		</feature>
+		<feature id="org.eclipse.emf.common" version="2.35.0.v20250401-0947" url="features/org.eclipse.emf.common_2.35.0.v20250401-0947/">
+		</feature>
+		<feature id="org.jkiss.dbeaver.db.ui.feature" version="1.0.153.202508311659" url="features/org.jkiss.dbeaver.db.ui.feature_1.0.153.202508311659/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.httpclient5.feature" version="1.2.0.v20250501-1000" url="features/org.eclipse.ecf.filetransfer.httpclient5.feature_1.2.0.v20250501-1000/">
+		</feature>
+		<feature id="org.jkiss.dbeaver.app.local.feature" version="25.2.0.202508311659" url="features/org.jkiss.dbeaver.app.local.feature_25.2.0.202508311659/">
+		</feature>
+		<feature id="org.eclipse.emf.ecore" version="2.40.0.v20250414-1351" url="features/org.eclipse.emf.ecore_2.40.0.v20250414-1351/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.core.feature" version="1.7.600.v20250521-0415" url="features/org.eclipse.equinox.p2.core.feature_1.7.600.v20250521-0415/">
+		</feature>
+		<feature id="org.eclipse.e4.rcp" version="4.36.0.v20250528-1759" url="features/org.eclipse.e4.rcp_4.36.0.v20250528-1759/">
+		</feature>
+		<feature id="org.eclipse.ecf.core.feature" version="1.7.0.v20250304-2338" url="features/org.eclipse.ecf.core.feature_1.7.0.v20250304-2338/">
+		</feature>
+		<feature id="org.jkiss.dbeaver.standalone.feature" version="25.2.0.202508311659" url="features/org.jkiss.dbeaver.standalone.feature_25.2.0.202508311659/" plugin-identifier="org.jkiss.dbeaver.ui.app.standalone">
+		</feature>
+		<feature id="org.eclipse.rcp" version="4.36.0.v20250528-1830" url="features/org.eclipse.rcp_4.36.0.v20250528-1830/">
+		</feature>
+		<feature id="org.jkiss.dbeaver.db.feature" version="1.0.153.202508311659" url="features/org.jkiss.dbeaver.db.feature_1.0.153.202508311659/">
+		</feature>
+		<feature id="org.jkiss.dbeaver.ext.ai.feature" version="1.0.64.202508311659" url="features/org.jkiss.dbeaver.ext.ai.feature_1.0.64.202508311659/" plugin-identifier="org.jkiss.dbeaver.ui.ai">
+		</feature>
+		<feature id="org.jkiss.dbeaver.ui.feature" version="25.2.0.202508311659" url="features/org.jkiss.dbeaver.ui.feature_25.2.0.202508311659/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.httpclientjava.feature" version="2.1.0.v20250108-1923" url="features/org.eclipse.ecf.filetransfer.httpclientjava.feature_2.1.0.v20250108-1923/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.discovery.feature" version="1.3.800.v20250520-0605" url="features/org.eclipse.equinox.p2.discovery.feature_1.3.800.v20250520-0605/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.feature" version="3.15.0.v20250115-0406" url="features/org.eclipse.ecf.filetransfer.feature_3.15.0.v20250115-0406/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.extras.feature" version="1.4.2800.v20250521-0415" url="features/org.eclipse.equinox.p2.extras.feature_1.4.2800.v20250521-0415/">
+		</feature>
+		<feature id="org.jkiss.dbeaver.app.base.feature" version="25.2.0.202508311659" url="features/org.jkiss.dbeaver.app.base.feature_25.2.0.202508311659/" plugin-identifier="org.jkiss.dbeaver.ui.app.standalone">
+		</feature>
+		<feature id="org.jkiss.dbeaver.rcp.feature" version="3.0.41.202508311659" url="features/org.jkiss.dbeaver.rcp.feature_3.0.41.202508311659/">
+		</feature>
+	</site>
+</config>
