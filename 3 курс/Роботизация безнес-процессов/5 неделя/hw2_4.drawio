@@ -1,0 +1,22 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:139.0) Gecko/20100101 Firefox/139.0" version="28.2.5">
+  <diagram name="Page-1" id="JlrBRUyIQ91yDkKGYFFw">
+    <mxGraphModel dx="918" dy="541" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="M0Lyx5xR6GbQdnvvHL7j-126" value="Деятельность бухгалтера-ревизора" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=0;startSize=20;horizontalStack=0;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="70" width="480" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="M0Lyx5xR6GbQdnvvHL7j-127" value="Бухгалтер-ревизор" style="swimlane;startSize=20;horizontal=0;html=1;" vertex="1" parent="M0Lyx5xR6GbQdnvvHL7j-126">
+          <mxGeometry x="20" width="460" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="M0Lyx5xR6GbQdnvvHL7j-128" value="Склад магазина" style="swimlane;startSize=20;horizontal=0;html=1;" vertex="1" parent="M0Lyx5xR6GbQdnvvHL7j-126">
+          <mxGeometry x="20" y="150" width="460" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="M0Lyx5xR6GbQdnvvHL7j-129" value="Касса ПВЗ" style="swimlane;startSize=20;horizontal=0;html=1;" vertex="1" parent="M0Lyx5xR6GbQdnvvHL7j-126">
+          <mxGeometry x="20" y="270" width="460" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
