@@ -1,5 +1,5 @@
 import pytest
-from password_generator import PasswordGenerator
+from Astakhov_Test6 import PasswordGenerator
 import re
 import string
 import os
@@ -48,12 +48,13 @@ def test_generate_password_errors(): # 1 метод - тесты на ошибк
         ("pass", "Слабый"),
         ("!@#$%^&*", "Слабый"),
         ("Aa1!", "Слабый"),  
-        ("LongPasswordWithoutDigits", "Средный"),
+        ("LongPasswordWithoutDigits", "Средний"),
         ("12345678", "Слабый"),
     ]
 )
 def test_check_password_strength(password, expected_strength): # 2 метод
     strength = generator.check_password_strength(password)
+    print(password, expected_strength)
     assert strength == expected_strength
 
 @pytest.mark.parametrize("password,min_length,require_upper,require_lower,require_digits,require_special,expected_valid,expected_errors_count",

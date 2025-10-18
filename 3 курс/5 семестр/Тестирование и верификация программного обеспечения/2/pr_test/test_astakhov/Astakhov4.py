@@ -10,8 +10,8 @@ class Matrix:
         if index_row >= len(self.matrix_v) or index_col >= len(self.matrix_v[0]):
             raise IndexError(f"Индекс [{index_row}][{index_col}] вне границ матрицы {self.size}")
         self.matrix_v[index_row][index_col] = element
-    
-    def create_matrix(self, size="3x3", matrixDefault=True) -> list():
+   
+    def create_matrix(self, size="3x3", matrixDefault=True) -> list:
         if not self._validate_size_format(size):
             raise ValueError(f"Неверный формат размера: {size}. Используйте формат 'NxM'")
         
@@ -43,11 +43,19 @@ class Matrix:
 
     @staticmethod
     def sum(matrix1, matrix2) -> "Matrix":
+        # Проверка на пустые матрицы
+        if not matrix1.matrix_v or not matrix2.matrix_v:
+            raise ValueError("Одна из матриц пуста")
+        
+        # Проверка совпадения размеров
         if matrix1.size != matrix2.size:
             raise ValueError(f"Размеры матриц не совпадают: {matrix1.size} и {matrix2.size}")
         
-        if not matrix1.matrix_v or not matrix2.matrix_v:
-            raise ValueError("Одна из матриц пуста")
+        # Проверка, что все элементы являются числами
+        for i in range(len(matrix1.matrix_v)):
+            for j in range(len(matrix1.matrix_v[0])):
+                if not isinstance(matrix1.matrix_v[i][j], (int, float)) or not isinstance(matrix2.matrix_v[i][j], (int, float)):
+                    raise TypeError("Элементы матриц должны быть числами")
         
         matr1 = [row[:] for row in matrix1.matrix_v]  
         matr2 = matrix2.matrix_v
@@ -76,8 +84,24 @@ class Matrix:
 
     @staticmethod
     def multiplication(matrix1, matrix2) -> "Matrix":
+        # Проверка на пустые матрицы
+        if not matrix1.matrix_v or not matrix2.matrix_v:
+            raise ValueError("Одна из матриц пуста")
+        
+        # Проверка совместимости размеров
         if len(matrix1.matrix_v[0]) != len(matrix2.matrix_v):
             raise ValueError(f"Несовместимые размеры для умножения: {matrix1.size} и {matrix2.size}")
+        
+        # Проверка, что все элементы являются числами
+        for i in range(len(matrix1.matrix_v)):
+            for j in range(len(matrix1.matrix_v[0])):
+                if not isinstance(matrix1.matrix_v[i][j], (int, float)):
+                    raise TypeError(f"Элемент matrix1[{i}][{j}] = {matrix1.matrix_v[i][j]} не является числом")
+        
+        for i in range(len(matrix2.matrix_v)):
+            for j in range(len(matrix2.matrix_v[0])):
+                if not isinstance(matrix2.matrix_v[i][j], (int, float)):
+                    raise TypeError(f"Элемент matrix2[{i}][{j}] = {matrix2.matrix_v[i][j]} не является числом")
         
         rows1 = len(matrix1.matrix_v)
         cols1 = len(matrix1.matrix_v[0])
@@ -89,10 +113,7 @@ class Matrix:
             for j in range(cols2):
                 sum_val = 0
                 for k in range(cols1):
-                    try:
-                        sum_val += matrix1.matrix_v[i][k] * matrix2.matrix_v[k][j]
-                    except TypeError:
-                        raise TypeError("Элементы матриц должны быть числами")
+                    sum_val += matrix1.matrix_v[i][k] * matrix2.matrix_v[k][j]
                 row.append(sum_val)
             result.append(row)
         
@@ -106,4 +127,3 @@ class Matrix:
         for row in self.matrix_v:
             print(row)
         print(f"Размер: {self.size}")
-
