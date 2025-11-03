@@ -1,0 +1,3 @@
+interface Flying {
+    fun fly()
+}
