@@ -1,0 +1,16 @@
+dinamic_list_with_errors.h:0:  No copyright message found.  You should have a line: "Copyright [year] <Copyright Owner>"  [legal/copyright] [5]
+dinamic_list_with_errors.h:11:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
+dinamic_list_with_errors.h:16:  You don't need a ; after a }  [readability/braces] [4]
+dinamic_list_with_errors.h:31:  Constructors callable with one argument should be marked explicit.  [runtime/explicit] [4]
+dinamic_list_with_errors.h:39:  Redundant blank line at the end of a code block should be deleted.  [whitespace/blank_line] [3]
+dinamic_list_with_errors.h:48:  Almost always, snprintf is better than strcpy  [runtime/printf] [4]
+dinamic_list_with_errors.h:64:  { should almost always be at the end of the previous line  [whitespace/braces] [4]
+dinamic_list_with_errors.h:89:  Missing spaces around =  [whitespace/operators] [4]
+dinamic_list_with_errors.h:133:  An else should appear on the same line as the preceding }  [whitespace/newline] [4]
+dinamic_list_with_errors.h:133:  If an else has a brace on one side, it should have it on both  [readability/braces] [5]
+dinamic_list_with_errors.h:166:  An else should appear on the same line as the preceding }  [whitespace/newline] [4]
+dinamic_list_with_errors.h:172:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+dinamic_list_with_errors.h:173:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+dinamic_list_with_errors.h:174:  Could not find a newline character at the end of the file.  [whitespace/ending_newline] [5]
+Done processing dinamic_list_with_errors.h
+Total errors found: 14

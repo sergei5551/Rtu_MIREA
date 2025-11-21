@@ -1,0 +1,11 @@
+dinamic_list_with_errors.h:2:0: information: Include file: <iostream> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <iostream>
+^
+dinamic_list_with_errors.h:3:0: information: Include file: <cstring> not found. Please note: Cppcheck does not need standard library headers to get proper results. [missingIncludeSystem]
+#include <cstring>  // Cppcheck: Неиспользуемый заголовок
+^
+dinamic_list_with_errors.h:9:1: error: Code 'template<...' is invalid C code. [syntaxError]
+template<typename T>
+^
+nofile:0:0: information: Active checkers: There was critical errors (use --checkers-report=<filename> to see details) [checkersReport]
+

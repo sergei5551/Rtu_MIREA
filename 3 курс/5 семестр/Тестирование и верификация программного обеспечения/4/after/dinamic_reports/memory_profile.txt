@@ -1,0 +1,116 @@
+Filename: /home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/after/dynamic_code/Matrix_with_errors_for_dyn.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    27     25.1 MiB     25.1 MiB           1       @profile
+    28                                             def create_matrix(self, size="3x3", matrixDefault=True) -> list:
+    29     25.1 MiB      0.0 MiB           1           if not self._validate_size_format(size):
+    30                                                     raise ValueError(
+    31                                                         f"Неверный формат размера: {size}. Используйте формат 'NxM'"
+    32                                                     )
+    33                                         
+    34     25.1 MiB      0.0 MiB           1           self.size = size
+    35     25.1 MiB      0.0 MiB           1           self.matrix_v = []
+    36                                         
+    37                                                 # Memory Profiler: Избыточное копирование данных
+    38     25.1 MiB      0.0 MiB           1           temp_lists = []
+    39     25.1 MiB      0.0 MiB           3           for i in range(int(self.size[0])):
+    40     25.1 MiB      0.0 MiB           2               matrix_prom = list()
+    41     25.1 MiB      0.0 MiB           6               for j in range(int(self.size[2])):
+    42     25.1 MiB      0.0 MiB           4                   matrix_prom.append(1)
+    43     25.1 MiB      0.0 MiB           4                   temp_lists.append(matrix_prom[:])  # Лишнее копирование на каждой итерации
+    44     25.1 MiB      0.0 MiB           2               self.matrix_v.append(matrix_prom)
+    45     25.1 MiB      0.0 MiB           1           return self.matrix_v
+
+
+Filename: /home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/after/dynamic_code/Matrix_with_errors_for_dyn.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    27     25.1 MiB     25.1 MiB           1       @profile
+    28                                             def create_matrix(self, size="3x3", matrixDefault=True) -> list:
+    29     25.1 MiB      0.0 MiB           1           if not self._validate_size_format(size):
+    30                                                     raise ValueError(
+    31                                                         f"Неверный формат размера: {size}. Используйте формат 'NxM'"
+    32                                                     )
+    33                                         
+    34     25.1 MiB      0.0 MiB           1           self.size = size
+    35     25.1 MiB      0.0 MiB           1           self.matrix_v = []
+    36                                         
+    37                                                 # Memory Profiler: Избыточное копирование данных
+    38     25.1 MiB      0.0 MiB           1           temp_lists = []
+    39     25.1 MiB      0.0 MiB           3           for i in range(int(self.size[0])):
+    40     25.1 MiB      0.0 MiB           2               matrix_prom = list()
+    41     25.1 MiB      0.0 MiB           6               for j in range(int(self.size[2])):
+    42     25.1 MiB      0.0 MiB           4                   matrix_prom.append(1)
+    43     25.1 MiB      0.0 MiB           4                   temp_lists.append(matrix_prom[:])  # Лишнее копирование на каждой итерации
+    44     25.1 MiB      0.0 MiB           2               self.matrix_v.append(matrix_prom)
+    45     25.1 MiB      0.0 MiB           1           return self.matrix_v
+
+
+Матрица 1:
+[1, 1]
+[1, 1]
+Размер: 2x2
+
+Матрица 2:
+[1, 1]
+[1, 1]
+Размер: 2x2
+
+Сложение матриц:
+[2, 2]
+[2, 2]
+Размер: 2x2
+
+Транспонирование матрицы 1:
+Filename: /home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/after/dynamic_code/Matrix_with_errors_for_dyn.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    76     25.1 MiB     25.1 MiB           1       @profile
+    77                                             def transposition(self) -> "Matrix":
+    78     25.1 MiB      0.0 MiB           1           if not self.matrix_v:
+    79                                                     raise ValueError("Матрица пуста, транспонирование невозможно")
+    80                                         
+    81     25.1 MiB      0.0 MiB           1           rows = len(self.matrix_v)
+    82     25.1 MiB      0.0 MiB           1           cols = len(self.matrix_v[0])
+    83                                         
+    84     25.1 MiB      0.0 MiB           1           transposed = []
+    85     25.1 MiB      0.0 MiB           3           for j in range(cols):
+    86     25.1 MiB      0.0 MiB           2               new_row = []
+    87     25.1 MiB      0.0 MiB           6               for i in range(rows):
+    88     25.1 MiB      0.0 MiB           4                   new_row.append(self.matrix_v[i][j])
+    89     25.1 MiB      0.0 MiB           2               transposed.append(new_row)
+    90                                         
+    91     25.1 MiB      0.0 MiB           1           return Matrix(transposed)
+
+
+[1, 1]
+[1, 1]
+Размер: 2x2
+
+Умножение матриц:
+[2, 2]
+[2, 2]
+Размер: 2x2
+
+Изменение элемента:
+Filename: /home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/after/dynamic_code/Matrix_with_errors_for_dyn.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    17     25.1 MiB     25.1 MiB           1       @profile
+    18                                             def change_element(self, index_row, index_col, element):
+    19     25.1 MiB      0.0 MiB           1           if (index_row >= len(self.matrix_v) or
+    20     25.1 MiB      0.0 MiB           1                   index_col >= len(self.matrix_v[0])):
+    21                                                     raise IndexError(
+    22                                                         f"Индекс [{index_row}][{index_col}] "
+    23                                                         f"вне границ матрицы {self.size}"
+    24                                                     )
+    25     25.1 MiB      0.0 MiB           1           self.matrix_v[index_row][index_col] = element
+
+
+[99, 1]
+[1, 1]
+Размер: 2x2

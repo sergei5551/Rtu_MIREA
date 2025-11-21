@@ -1,0 +1,60 @@
+=================================================================
+==62610==ERROR: AddressSanitizer: heap-use-after-free on address 0x7b5d61fe0080 at pc 0x7efd6371e1a7 bp 0x7ffe08b231c0 sp 0x7ffe08b22968
+WRITE of size 15 at 0x7b5d61fe0080 thread T0
+    #0 0x7efd6371e1a6 in memcpy /usr/src/debug/gcc/gcc/libsanitizer/sanitizer_common/sanitizer_common_interceptors_memintrinsics.inc:115
+    #1 0x5597af6478e7 in List<int>::push_front(int) /home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/after/dynamic_code/dinamic_list_with_errors_dyn.h:91
+    #2 0x5597af647376 in main /home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/after/dynamic_code/dinamic_list.cpp:8
+    #3 0x7efd62e27634  (/usr/lib/libc.so.6+0x27634) (BuildId: 2f722da304c0a508c891285e6840199c35019c8d)
+    #4 0x7efd62e276e8 in __libc_start_main (/usr/lib/libc.so.6+0x276e8) (BuildId: 2f722da304c0a508c891285e6840199c35019c8d)
+    #5 0x5597af6471e4 in _start (/home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/after/dynamic_code/test_list_asan+0x21e4) (BuildId: 52b68474da65b0f32f994b77d17ca8bafc8b68de)
+
+0x7b5d61fe0080 is located 0 bytes inside of 50-byte region [0x7b5d61fe0080,0x7b5d61fe00b2)
+freed by thread T0 here:
+    #0 0x7efd63722605 in operator delete[](void*) /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_new_delete.cpp:146
+    #1 0x5597af6478a3 in List<int>::push_front(int) /home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/after/dynamic_code/dinamic_list_with_errors_dyn.h:90
+    #2 0x5597af647376 in main /home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/after/dynamic_code/dinamic_list.cpp:8
+    #3 0x7efd62e27634  (/usr/lib/libc.so.6+0x27634) (BuildId: 2f722da304c0a508c891285e6840199c35019c8d)
+    #4 0x7efd62e276e8 in __libc_start_main (/usr/lib/libc.so.6+0x276e8) (BuildId: 2f722da304c0a508c891285e6840199c35019c8d)
+    #5 0x5597af6471e4 in _start (/home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/after/dynamic_code/test_list_asan+0x21e4) (BuildId: 52b68474da65b0f32f994b77d17ca8bafc8b68de)
+
+previously allocated by thread T0 here:
+    #0 0x7efd63721a5d in operator new[](unsigned long) /usr/src/debug/gcc/gcc/libsanitizer/asan/asan_new_delete.cpp:89
+    #1 0x5597af6476ad in List<int>::List() /home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/after/dynamic_code/dinamic_list_with_errors_dyn.h:48
+    #2 0x5597af647354 in main /home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/after/dynamic_code/dinamic_list.cpp:5
+    #3 0x7efd62e27634  (/usr/lib/libc.so.6+0x27634) (BuildId: 2f722da304c0a508c891285e6840199c35019c8d)
+    #4 0x7efd62e276e8 in __libc_start_main (/usr/lib/libc.so.6+0x276e8) (BuildId: 2f722da304c0a508c891285e6840199c35019c8d)
+    #5 0x5597af6471e4 in _start (/home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/after/dynamic_code/test_list_asan+0x21e4) (BuildId: 52b68474da65b0f32f994b77d17ca8bafc8b68de)
+
+SUMMARY: AddressSanitizer: heap-use-after-free /home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/after/dynamic_code/dinamic_list_with_errors_dyn.h:91 in List<int>::push_front(int)
+Shadow bytes around the buggy address:
+  0x7b5d61fdfe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7b5d61fdfe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7b5d61fdff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7b5d61fdff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+  0x7b5d61fe0000: fa fa fa fa 00 00 00 00 00 00 07 fa fa fa fa fa
+=>0x7b5d61fe0080:[fd]fd fd fd fd fd fd fa fa fa fa fa fa fa fa fa
+  0x7b5d61fe0100: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x7b5d61fe0180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x7b5d61fe0200: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x7b5d61fe0280: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x7b5d61fe0300: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==62610==ABORTING

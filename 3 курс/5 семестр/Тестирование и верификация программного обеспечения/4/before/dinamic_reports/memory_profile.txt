@@ -1,0 +1,137 @@
+Filename: /home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/before/Matrix.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    18     25.3 MiB     25.3 MiB           1       @profile
+    19                                             def create_matrix(self, size="3x3", matrixDefault=True) -> list:
+    20     25.3 MiB      0.0 MiB           1           if not self._validate_size_format(size):
+    21                                                     raise ValueError(
+    22                                                         f"Неверный формат размера: {size}. Используйте формат 'NxM'"
+    23                                                     )
+    24                                         
+    25     25.3 MiB      0.0 MiB           1           self.size = size
+    26     25.3 MiB      0.0 MiB           1           self.matrix_v = []
+    27                                         
+    28     25.3 MiB      0.0 MiB           1           if matrixDefault:
+    29     25.3 MiB      0.0 MiB           1               max_var = 1
+    30     25.3 MiB      0.0 MiB           3               for i in range(int(self.size[0])):
+    31     25.3 MiB      0.0 MiB           2                   matrix_prom = list()
+    32     25.3 MiB      0.0 MiB           6                   for j in range(int(self.size[2])):
+    33     25.3 MiB      0.0 MiB           4                       matrix_prom.append(max_var)
+    34     25.3 MiB      0.0 MiB           4                       max_var += 1
+    35     25.3 MiB      0.0 MiB           2                   self.matrix_v.append(matrix_prom)
+    36     25.3 MiB      0.0 MiB           1               return self.matrix_v
+    37                                         
+    38                                                 for i in range(int(self.size[0])):
+    39                                                     matrix_prom = list()
+    40                                                     for j in range(int(self.size[2])):
+    41                                                         value = int(input(
+    42                                                             f"Введите значение для элемента[{i + 1}][{j + 1}]:"
+    43                                                         ))
+    44                                                         matrix_prom.append(value)
+    45                                                     self.matrix_v.append(matrix_prom)
+    46                                                 return self.matrix_v
+
+
+Filename: /home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/before/Matrix.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    18     25.3 MiB     25.3 MiB           1       @profile
+    19                                             def create_matrix(self, size="3x3", matrixDefault=True) -> list:
+    20     25.3 MiB      0.0 MiB           1           if not self._validate_size_format(size):
+    21                                                     raise ValueError(
+    22                                                         f"Неверный формат размера: {size}. Используйте формат 'NxM'"
+    23                                                     )
+    24                                         
+    25     25.3 MiB      0.0 MiB           1           self.size = size
+    26     25.3 MiB      0.0 MiB           1           self.matrix_v = []
+    27                                         
+    28     25.3 MiB      0.0 MiB           1           if matrixDefault:
+    29     25.3 MiB      0.0 MiB           1               max_var = 1
+    30     25.3 MiB      0.0 MiB           3               for i in range(int(self.size[0])):
+    31     25.3 MiB      0.0 MiB           2                   matrix_prom = list()
+    32     25.3 MiB      0.0 MiB           6                   for j in range(int(self.size[2])):
+    33     25.3 MiB      0.0 MiB           4                       matrix_prom.append(max_var)
+    34     25.3 MiB      0.0 MiB           4                       max_var += 1
+    35     25.3 MiB      0.0 MiB           2                   self.matrix_v.append(matrix_prom)
+    36     25.3 MiB      0.0 MiB           1               return self.matrix_v
+    37                                         
+    38                                                 for i in range(int(self.size[0])):
+    39                                                     matrix_prom = list()
+    40                                                     for j in range(int(self.size[2])):
+    41                                                         value = int(input(
+    42                                                             f"Введите значение для элемента[{i + 1}][{j + 1}]:"
+    43                                                         ))
+    44                                                         matrix_prom.append(value)
+    45                                                     self.matrix_v.append(matrix_prom)
+    46                                                 return self.matrix_v
+
+
+Матрица 1:
+[1, 2]
+[3, 4]
+Размер: 2x2
+
+Матрица 2:
+[1, 2]
+[3, 4]
+Размер: 2x2
+
+Сложение матриц:
+[2, 4]
+[6, 8]
+Размер: 2x2
+
+Транспонирование матрицы 1:
+Filename: /home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/before/Matrix.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+    85     25.3 MiB     25.3 MiB           1       @profile
+    86                                             def transposition(self) -> "Matrix":
+    87     25.3 MiB      0.0 MiB           1           if not self.matrix_v:
+    88                                                     raise ValueError("Матрица пуста, транспонирование невозможно")
+    89                                         
+    90     25.3 MiB      0.0 MiB           1           rows = len(self.matrix_v)
+    91     25.3 MiB      0.0 MiB           1           cols = len(self.matrix_v[0])
+    92                                         
+    93                                                 # Создаем новую транспонированную матрицу
+    94     25.3 MiB      0.0 MiB           1           transposed = []
+    95     25.3 MiB      0.0 MiB           3           for j in range(cols):
+    96     25.3 MiB      0.0 MiB           2               new_row = []
+    97     25.3 MiB      0.0 MiB           6               for i in range(rows):
+    98     25.3 MiB      0.0 MiB           4                   new_row.append(self.matrix_v[i][j])
+    99     25.3 MiB      0.0 MiB           2               transposed.append(new_row)
+   100                                         
+   101     25.3 MiB      0.0 MiB           1           return Matrix(transposed)
+
+
+[1, 3]
+[2, 4]
+Размер: 2x2
+
+Умножение матриц:
+[7, 10]
+[15, 22]
+Размер: 2x2
+
+Изменение элемента:
+Filename: /home/sergei/Desktop/Rtu_MIREA/3 курс/5 семестр/Тестирование и верификация программного обеспечения/4/before/Matrix.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+     9     25.3 MiB     25.3 MiB           1       @profile
+    10                                             def change_element(self, index_row, index_col, element):
+    11     25.3 MiB      0.0 MiB           1           if (index_row >= len(self.matrix_v) or
+    12     25.3 MiB      0.0 MiB           1                   index_col >= len(self.matrix_v[0])):
+    13                                                     raise IndexError(
+    14                                                         f"Индекс [{index_row}][{index_col}] "
+    15                                                         f"вне границ матрицы {self.size}"
+    16                                                     )
+    17     25.3 MiB      0.0 MiB           1           self.matrix_v[index_row][index_col] = element
+
+
+[99, 2]
+[3, 4]
+Размер: 2x2
