@@ -10,10 +10,9 @@ public class task {
               1) Зашифровать файл
               2) Расшифровать файл
               """.trim());
-      
       switch (choice) {
         case 1 ->;
-        case 2 -> ;
+        case 2 ->;
         default -> choice = 0;
       }
     }
