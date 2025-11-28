@@ -35,7 +35,6 @@ fun main() {
     println("\nЛогирование чисел")
     numberLogger.logError(404)
     numberLogger.logError(3.14)
-    numberLogger.logError(-1)
-    
+    numberLogger.logError(-1)   
     
 }

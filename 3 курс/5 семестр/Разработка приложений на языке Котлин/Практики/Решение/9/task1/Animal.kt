@@ -25,7 +25,7 @@ abstract class Animal {
       Сытость: $hunger
       Энергия: $energy
       Счастье: $happiness
-      """,
+      """
         )
     }
 

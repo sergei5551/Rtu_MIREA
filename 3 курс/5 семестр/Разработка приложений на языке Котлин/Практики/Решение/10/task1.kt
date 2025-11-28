@@ -63,7 +63,7 @@ fun main() {
     try {
         val form = FormValidator()
         form.validateAll(
-            name = "Василийasdasdasdasdasdasdadawdad",
+            name = "Василийasdasd",
             birthDate = "1999-05-12",
             gender = Gender.MALE,
             weight = 75.5,

@@ -1,11 +1,11 @@
 open class Animal {
-  open fun speak() = "Some sound"
+  open fun speak() = "Some sound" // Нужно указать что метод будет наследуемым(open// Нужны val)
 }
 class Cat : Animal() {
  override fun speak() = "Meow!"
 }
-
-data class User(val name: String,val age: Int) // Нужны val
+// Нужны val
+data class User(val name: String,val age: Int) 
 
 
 fun main() {

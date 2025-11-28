@@ -15,7 +15,6 @@ enum class DrinkType(
 
 
 
-
 fun main(){
   for (dr in DrinkType.entries){
     println("Название: ${dr.nameDrink()}")
@@ -24,6 +23,6 @@ fun main(){
       println("Напиток горячий, ${dr.temp}C")
     else
       println("Напиток не горячий, ${dr.temp}C")
-    println()
+    println() 
   }
 }
