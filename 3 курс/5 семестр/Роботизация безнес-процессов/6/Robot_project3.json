@@ -1,0 +1,1264 @@
+{
+  "generator": "studioFront",
+  "generated_by_front_version": "1.10.3",
+  "created_by_front_version": "1.10.3",
+  "consumer": "import",
+  "uuid": "0ba784fe-3234-4ea9-804c-b8d1e424c2dd",
+  "name": "Robot_project3",
+  "description": "",
+  "nodes_direction": "fromUptoDown",
+  "verbose": false,
+  "clear_log_before_run": false,
+  "default_timeout": null,
+  "py_libraries": [],
+  "rights": [
+    "coteica555"
+  ],
+  "robot_graphs": [
+    {
+      "name": "Robot_project3",
+      "uuid": "77f077bf-e193-484c-810c-adccf4115075",
+      "annotation": null,
+      "snippet_robot_uuid": null,
+      "snippet_robot_version_uuid": null,
+      "snippet_meta": null,
+      "snippet_parent_node_uuid": null,
+      "template_meta": null,
+      "template_robot_uuid": null,
+      "template_robot_version_uuid": null,
+      "sha1": "8b9ce0bee007fd5047d30c8cb694b6eb8e128a38",
+      "vars": {
+        "global": [
+          {
+            "name": "RITA_ENV",
+            "uuid": "e85544d8-813a-4edf-a43d-fd9fc2e05fef",
+            "value": {},
+            "required": false,
+            "data_type": "base.dictionary",
+            "item_type": "base.any",
+            "display_assistant": false
+          },
+          {
+            "name": "fileExel",
+            "uuid": "4bb97c4b-3ed8-4b02-ba25-234cf6c49570",
+            "comment": "Файл excel",
+            "required": false,
+            "data_type": "object.excelFile"
+          },
+          {
+            "name": "path_to_desktop",
+            "data_type": "base.string",
+            "comment": "Путь к папке desktop",
+            "required": false,
+            "uuid": "fdf29bcb-456f-44cf-ac8d-01fdcd3c7555",
+            "value": "",
+            "display_assistant": false
+          },
+          {
+            "name": "dt_exapp",
+            "data_type": "object.dataTable",
+            "comment": "Таблица с данными",
+            "required": false,
+            "uuid": "329536e0-cdd7-41ae-84e9-d1f80d7db9f8",
+            "value": {
+              "rows": [],
+              "columns": []
+            }
+          },
+          {
+            "name": "drow_dt_exapp",
+            "data_type": "base.string",
+            "comment": "Изменение данных диапазона",
+            "required": false,
+            "uuid": "b01a6ad5-f415-4524-8dac-22d7b6524387",
+            "value": "",
+            "display_assistant": false
+          },
+          {
+            "name": "exc_error",
+            "data_type": "object.exception",
+            "comment": "Обработчик ошибок ",
+            "required": false,
+            "uuid": "c0cc2fb7-4be6-40eb-b20f-c3dac398ea4b"
+          },
+          {
+            "name": "index_drow_dt_exap",
+            "data_type": "base.integer",
+            "comment": "Хранит индекс",
+            "required": false,
+            "uuid": "d1947c61-3e49-41c0-8329-72e0d512b01b",
+            "value": 0,
+            "display_assistant": false
+          },
+          {
+            "name": "fl_temp",
+            "data_type": "base.float",
+            "comment": "значение ячейки температура",
+            "required": false,
+            "uuid": "0719a393-a206-4c79-9128-f7478910c340",
+            "display_assistant": false
+          }
+        ]
+      },
+      "id": "garpa@1.0.0",
+      "nodes": {
+        "1": {
+          "id": 1,
+          "data": {
+            "uuid": "75dded47-08c3-4f9a-a63f-298354c2db06",
+            "vars": {
+              "inputs": [],
+              "outputs": []
+            },
+            "title": "Старт",
+            "input_socket_position": "top",
+            "output_socket_position": "bottom"
+          },
+          "inputs": {},
+          "outputs": {
+            "out_exec": {
+              "connections": [
+                {
+                  "node": 5,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "position": [
+            0,
+            -175
+          ],
+          "name": "base.start"
+        },
+        "2": {
+          "id": 2,
+          "data": {
+            "uuid": "f48262ed-9bb4-41ab-a245-bac2b727b5c9",
+            "vars": {
+              "inputs": [],
+              "outputs": []
+            },
+            "title": "Финиш",
+            "input_socket_position": "top",
+            "output_socket_position": "bottom"
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 10,
+                  "output": "out_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {},
+          "position": [
+            475.1709656907883,
+            1399.033002933189
+          ],
+          "name": "base.finish"
+        },
+        "4": {
+          "id": 4,
+          "data": {
+            "uuid": "3682eab8-150e-49ca-8d02-d71bdb15895f",
+            "vars": {
+              "inputs": [
+                {
+                  "ref": "4bb97c4b-3ed8-4b02-ba25-234cf6c49570",
+                  "uuid": "26ba97f6-6127-4d13-ac0d-928151fa03c5",
+                  "name": "excel_settings",
+                  "data_type": "object.excelFile"
+                },
+                {
+                  "name": "sheet",
+                  "uuid": "c6dbf1a1-c11f-4c15-a45c-7892d16dafe6",
+                  "value": "Лист1",
+                  "data_type": "base.string"
+                },
+                {
+                  "uuid": "b748569a-a633-4ba9-a53d-d04c3b58468f",
+                  "name": "range",
+                  "value": "",
+                  "data_type": "base.string"
+                },
+                {
+                  "name": "columns",
+                  "uuid": "8a47d886-8c56-4340-9ba7-c864eb0bb18b",
+                  "value": "",
+                  "data_type": "base.string"
+                },
+                {
+                  "name": "rows",
+                  "uuid": "4c8cc7d4-5244-44f4-b2f9-0a018ec1f9a0",
+                  "value": "",
+                  "data_type": "base.string"
+                },
+                {
+                  "name": "add_headers",
+                  "uuid": "c3b8de84-8121-4e9e-94b3-4673a0ee3c17",
+                  "value": true,
+                  "data_type": "base.bool"
+                },
+                {
+                  "name": "use_filter",
+                  "uuid": "1289531e-cbe2-49e9-852a-c9176eb05437",
+                  "value": false,
+                  "data_type": "base.bool"
+                },
+                {
+                  "name": "ignore_empty",
+                  "uuid": "690bcb34-85b4-491d-bc64-dfaf91c6a0e2",
+                  "value": false,
+                  "data_type": "base.bool"
+                },
+                {
+                  "name": "read_as_string",
+                  "uuid": "834a975f-c15b-4c0c-952d-cce0e03c82f8",
+                  "value": false,
+                  "data_type": "base.bool"
+                }
+              ],
+              "outputs": [
+                {
+                  "ref": "329536e0-cdd7-41ae-84e9-d1f80d7db9f8",
+                  "uuid": "1d1b6065-4227-4bc5-a7bf-ea286face6d0",
+                  "name": "result",
+                  "data_type": "object.dataTable"
+                }
+              ]
+            },
+            "title": "Прочитать диапазон с Лист1",
+            "version": 5,
+            "base_name": "excel.read_range",
+            "title_fold_height": 22,
+            "input_socket_position": "top",
+            "output_socket_position": "bottom",
+            "title_max_lines_number": 1
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 7,
+                  "output": "out_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "out_exec": {
+              "connections": [
+                {
+                  "node": 8,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "position": [
+            -182.7151213840839,
+            360.39985577844783
+          ],
+          "name": "excel.read_range.5"
+        },
+        "5": {
+          "id": 5,
+          "data": {
+            "uuid": "5bb7d33d-1566-4bbd-8375-c387ff5756c0",
+            "vars": {
+              "inputs": [
+                {
+                  "uuid": "23c7a985-b8f3-4d1c-8502-608a3b49e084",
+                  "name": "folder_name",
+                  "value": "Desktop",
+                  "data_type": "base.string"
+                }
+              ],
+              "outputs": [
+                {
+                  "ref": "fdf29bcb-456f-44cf-ac8d-01fdcd3c7555",
+                  "uuid": "ee8aac85-486d-4aa1-a629-40f9faf43004",
+                  "name": "folder_path",
+                  "data_type": "base.string"
+                }
+              ]
+            },
+            "title": "Получить адрес Desktop",
+            "title_fold_height": 22,
+            "input_socket_position": "top",
+            "output_socket_position": "bottom",
+            "title_max_lines_number": 1
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 1,
+                  "output": "out_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "out_exec": {
+              "connections": [
+                {
+                  "node": 7,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "position": [
+            -184.76125154862478,
+            -57.11302818534542
+          ],
+          "name": "system.get_env_folder"
+        },
+        "7": {
+          "id": 7,
+          "data": {
+            "uuid": "de3ad30e-4b5c-4cb2-a96a-253338364f5a",
+            "vars": {
+              "inputs": [
+                {
+                  "uuid": "fe012df6-fae8-434c-8470-81a772ce238e",
+                  "name": "use_app",
+                  "value": false,
+                  "data_type": "base.bool"
+                },
+                {
+                  "uuid": "cb8c0034-d439-4101-9716-1c498a1e684c",
+                  "name": "workbook_path",
+                  "value": "f'{path_to_desktop}//files//temp.xlsx'",
+                  "data_type": "base.string",
+                  "expression": true
+                },
+                {
+                  "name": "create_if_none",
+                  "uuid": "1571060c-5f84-4294-9092-3bf086dee39a",
+                  "value": false,
+                  "data_type": "base.bool"
+                },
+                {
+                  "name": "password",
+                  "uuid": "ac3bd0d4-42c7-4259-af64-341636be64ec",
+                  "value": "",
+                  "data_type": "base.string"
+                },
+                {
+                  "name": "edit_password",
+                  "uuid": "b0321794-5025-4bad-99e7-95d8c091f252",
+                  "value": "",
+                  "data_type": "base.string"
+                },
+                {
+                  "name": "macro_setting",
+                  "uuid": "3f0f5f81-1865-419f-bc47-c23695472c6b",
+                  "value": "ENABLE",
+                  "data_type": "base.enum"
+                },
+                {
+                  "name": "read_only",
+                  "uuid": "fc38cdf6-cea1-4d3b-bf29-06a32b9a65e5",
+                  "value": false,
+                  "data_type": "base.bool"
+                },
+                {
+                  "name": "save_each_action",
+                  "uuid": "8c75b2f6-4bf6-4137-a766-8c0c4cfd421a",
+                  "value": true,
+                  "data_type": "base.bool"
+                },
+                {
+                  "name": "visible_operations",
+                  "uuid": "9c34d515-72aa-4990-b028-5e36141c356f",
+                  "value": false,
+                  "data_type": "base.bool"
+                }
+              ],
+              "outputs": [
+                {
+                  "uuid": "0ee08127-02ce-4631-a163-f324bd5ad445",
+                  "ref": "",
+                  "name": "excel_app",
+                  "value": "",
+                  "data_type": "object.excelApp"
+                },
+                {
+                  "uuid": "b25f3a1d-e853-4108-aacb-08e28f13d508",
+                  "ref": "4bb97c4b-3ed8-4b02-ba25-234cf6c49570",
+                  "name": "excel_file",
+                  "value": "",
+                  "data_type": "object.excelFile"
+                }
+              ]
+            },
+            "title": "Открыть Excel temp.xlsx",
+            "version": 2,
+            "base_name": "excel.open_excel",
+            "title_fold_height": 22,
+            "input_socket_position": "top",
+            "output_socket_position": "bottom",
+            "title_max_lines_number": 1
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 5,
+                  "output": "out_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "out_exec": {
+              "connections": [
+                {
+                  "node": 4,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "position": [
+            -184.7668809929454,
+            139.1692933123057
+          ],
+          "name": "excel.open_excel.2"
+        },
+        "8": {
+          "id": 8,
+          "data": {
+            "uuid": "662608a4-952d-4801-b814-94aca989e59a",
+            "vars": {
+              "inputs": [
+                {
+                  "ref": "329536e0-cdd7-41ae-84e9-d1f80d7db9f8",
+                  "uuid": "634ad70e-a983-4d11-8518-f55ee893cccb",
+                  "name": "collection",
+                  "data_type": "object.dataTable"
+                }
+              ],
+              "outputs": [
+                {
+                  "ref": "b01a6ad5-f415-4524-8dac-22d7b6524387",
+                  "uuid": "6047debd-7ac3-4679-ac81-2191913cd4f6",
+                  "name": "loop_variable_name",
+                  "data_type": "base.any"
+                },
+                {
+                  "ref": "d1947c61-3e49-41c0-8329-72e0d512b01b",
+                  "uuid": "de225508-84e9-475e-93eb-f8f887be16ca",
+                  "name": "loop_index",
+                  "data_type": "base.integer"
+                }
+              ]
+            },
+            "title": "Цикл для каждой строки",
+            "title_fold_height": 22,
+            "input_socket_position": "top",
+            "output_socket_position": "bottom",
+            "title_max_lines_number": 1
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 4,
+                  "output": "out_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "loop_body_exec": {
+              "connections": [
+                {
+                  "node": 11,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            },
+            "completed_exec": {
+              "connections": [
+                {
+                  "node": 9,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "position": [
+            -185.25951272297078,
+            593.2755305869529
+          ],
+          "name": "base.for_in_loop"
+        },
+        "9": {
+          "id": 9,
+          "data": {
+            "uuid": "9d148c38-3a24-4f3c-ae39-8f410121d831",
+            "vars": {
+              "inputs": [
+                {
+                  "ref": "4bb97c4b-3ed8-4b02-ba25-234cf6c49570",
+                  "name": "excel_settings",
+                  "uuid": "e2ad3eea-6e92-48c0-b3ef-114ecf6e2b35",
+                  "data_type": "object.excelFile"
+                },
+                {
+                  "name": "sheet",
+                  "uuid": "5a523ce1-5c07-4f0a-aec9-fe01d9eb8d66",
+                  "value": "Лист1",
+                  "data_type": "base.string"
+                },
+                {
+                  "name": "starting_cell",
+                  "uuid": "d12f4c4e-a079-4f68-9702-829c0fcd3cfd",
+                  "value": "",
+                  "data_type": "base.string"
+                },
+                {
+                  "name": "append_range",
+                  "uuid": "ec7d5ec1-3d17-4394-9998-80494b1f087a",
+                  "data_type": "base.bool"
+                },
+                {
+                  "name": "source",
+                  "uuid": "538c1b37-ddcf-4d20-a373-1303d2407f10",
+                  "value": "VALUE",
+                  "data_type": "base.enum"
+                },
+                {
+                  "ref": "329536e0-cdd7-41ae-84e9-d1f80d7db9f8",
+                  "name": "data_table",
+                  "uuid": "7da06db9-6ab0-4d2f-a6bf-262cfe8e8023",
+                  "value": "",
+                  "data_type": "object.dataTable"
+                },
+                {
+                  "name": "add_headers",
+                  "uuid": "0ff80258-528d-4c67-bb56-ba5a8e6f6168",
+                  "value": true,
+                  "data_type": "base.bool"
+                },
+                {
+                  "name": "apply_excel_format",
+                  "uuid": "f12d96d4-d3c9-4440-94ff-03fd154089ae",
+                  "value": true,
+                  "data_type": "base.bool"
+                }
+              ],
+              "outputs": []
+            },
+            "title": "Записать диапазон таблицы",
+            "version": 3,
+            "base_name": "excel.write_range",
+            "title_fold_height": 22,
+            "input_socket_position": "top",
+            "output_socket_position": "bottom",
+            "title_max_lines_number": 1
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 8,
+                  "output": "completed_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "out_exec": {
+              "connections": [
+                {
+                  "node": 10,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "position": [
+            279.75850445228934,
+            852.7105655787585
+          ],
+          "name": "excel.write_range.3"
+        },
+        "10": {
+          "id": 10,
+          "data": {
+            "uuid": "c2f3cc20-2c3c-4888-a7dd-0bb11f9a1d44",
+            "vars": {
+              "inputs": [
+                {
+                  "ref": "4bb97c4b-3ed8-4b02-ba25-234cf6c49570",
+                  "uuid": "9efca9a7-f0a4-47d9-9e23-1d167271d240",
+                  "name": "excel_settings",
+                  "data_type": "object.excelFile"
+                }
+              ],
+              "outputs": []
+            },
+            "title": "Сохранить файл temp.xsl",
+            "version": 2,
+            "base_name": "excel.save_excel",
+            "title_fold_height": 22,
+            "input_socket_position": "top",
+            "output_socket_position": "bottom",
+            "title_max_lines_number": 1
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 9,
+                  "output": "out_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "out_exec": {
+              "connections": [
+                {
+                  "node": 2,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "position": [
+            276.86332413748767,
+            1192.1010591850813
+          ],
+          "name": "excel.save_excel.2"
+        },
+        "11": {
+          "id": 11,
+          "data": {
+            "uuid": "b7650520-7a4d-4e82-9943-0cb5bb2759ac",
+            "vars": {
+              "inputs": [],
+              "outputs": [
+                {
+                  "uuid": "ff668cd1-d785-4185-9b10-14cd7c360861",
+                  "name": "business_catch",
+                  "value": false,
+                  "data_type": "base.bool"
+                },
+                {
+                  "ref": "c0cc2fb7-4be6-40eb-b20f-c3dac398ea4b",
+                  "uuid": "b47545e8-51cb-4d03-b1f5-935420270de0",
+                  "name": "exception",
+                  "data_type": "object.exception"
+                }
+              ]
+            },
+            "title": "Обработка исключений",
+            "title_fold_height": 22,
+            "input_socket_position": "top",
+            "output_socket_position": "bottom",
+            "title_max_lines_number": 1
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 8,
+                  "output": "loop_body_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "try_exec": {
+              "connections": [
+                {
+                  "node": 13,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            },
+            "catch_exec": {
+              "connections": [
+                {
+                  "node": 12,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            },
+            "out_exec": {
+              "connections": []
+            }
+          },
+          "position": [
+            -571.6293694502335,
+            858.4095361058003
+          ],
+          "name": "base.try_catch"
+        },
+        "12": {
+          "id": 12,
+          "data": {
+            "version": 2,
+            "base_name": "datatable.update_row_item",
+            "input_socket_position": "top",
+            "output_socket_position": "bottom",
+            "uuid": "758bb562-b9b6-4320-870b-ff300bb6d6e2",
+            "title": "Обновить значение ячейки результат",
+            "vars": {
+              "inputs": [
+                {
+                  "ref": "329536e0-cdd7-41ae-84e9-d1f80d7db9f8",
+                  "uuid": "4be84b82-bcce-4371-9e28-55cdad6e1f34",
+                  "name": "datatable",
+                  "data_type": "object.dataTable"
+                },
+                {
+                  "uuid": "8b0de2d1-509a-44f4-b2e1-5092bb38367d",
+                  "name": "row",
+                  "value": "",
+                  "data_type": "object.dataRow"
+                },
+                {
+                  "ref": "d1947c61-3e49-41c0-8329-72e0d512b01b",
+                  "uuid": "4958416c-ceef-42a7-b14c-88b293072c21",
+                  "name": "row_index",
+                  "data_type": "base.integer"
+                },
+                {
+                  "uuid": "3767cd1e-b365-4d40-84ae-8c5b98665a8f",
+                  "name": "column_name",
+                  "value": "результат",
+                  "data_type": "base.string"
+                },
+                {
+                  "uuid": "3b8e7926-bf46-4b2a-9f8a-c77d49d25954",
+                  "name": "column_index",
+                  "value": null,
+                  "data_type": "base.integer"
+                },
+                {
+                  "uuid": "b6f4fca6-fcf7-4ab8-83a2-c6bc3b91b036",
+                  "name": "value",
+                  "value": "Не получилось сравнение",
+                  "data_type": "base.any"
+                }
+              ],
+              "outputs": [
+                {
+                  "ref": "",
+                  "uuid": "dba30338-ee3e-4956-a824-06a350854a55",
+                  "name": "resulted_datatable",
+                  "data_type": "object.dataTable"
+                }
+              ]
+            },
+            "title_max_lines_number": 1,
+            "title_fold_height": 22
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 11,
+                  "output": "catch_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "out_exec": {
+              "connections": []
+            }
+          },
+          "position": [
+            -228.5330202226235,
+            1098.4566345405988
+          ],
+          "name": "datatable.update_row_item.2"
+        },
+        "13": {
+          "id": 13,
+          "data": {
+            "input_socket_position": "top",
+            "output_socket_position": "bottom",
+            "uuid": "7bc41ec8-c2b3-4132-a297-62e40944a6fb",
+            "title": "Получить значение ячейки температура",
+            "vars": {
+              "inputs": [
+                {
+                  "ref": "329536e0-cdd7-41ae-84e9-d1f80d7db9f8",
+                  "uuid": "61a8bdac-fb55-460f-8ba2-9228778171f5",
+                  "name": "datatable",
+                  "data_type": "object.dataTable"
+                },
+                {
+                  "uuid": "d2829dfa-911d-4f29-a176-32c3aa53fa83",
+                  "name": "row",
+                  "value": "",
+                  "data_type": "object.dataRow"
+                },
+                {
+                  "ref": "d1947c61-3e49-41c0-8329-72e0d512b01b",
+                  "uuid": "a0c57e45-91c2-4706-a11b-98825a41ab94",
+                  "name": "row_index",
+                  "data_type": "base.integer"
+                },
+                {
+                  "uuid": "b6e5ea62-feeb-4a4f-b715-3710ed94fddf",
+                  "name": "column_name",
+                  "value": "температура",
+                  "data_type": "base.string"
+                },
+                {
+                  "uuid": "fb3d75af-0f41-4e93-b202-1d123de99d65",
+                  "name": "column_index",
+                  "value": null,
+                  "data_type": "base.integer"
+                }
+              ],
+              "outputs": [
+                {
+                  "ref": "0719a393-a206-4c79-9128-f7478910c340",
+                  "uuid": "83e7ec6b-72d2-425f-87de-13f9e0ba0cb6",
+                  "name": "value",
+                  "data_type": "base.string"
+                }
+              ]
+            },
+            "title_max_lines_number": 2,
+            "title_fold_height": 24
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 11,
+                  "output": "try_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "out_exec": {
+              "connections": [
+                {
+                  "node": 14,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "position": [
+            -735.2748677683447,
+            1081.162866178979
+          ],
+          "name": "datatable.get_row_item"
+        },
+        "14": {
+          "id": 14,
+          "data": {
+            "input_socket_position": "top",
+            "output_socket_position": "bottom",
+            "uuid": "a18f5d26-82a9-46b9-89bc-e0a07a51b289",
+            "title": "Вывод в консоль значения темп(лог)",
+            "vars": {
+              "inputs": [
+                {
+                  "ref": "0719a393-a206-4c79-9128-f7478910c340",
+                  "uuid": "d919f810-3339-45de-8e00-3279b8b97c9a",
+                  "name": "entity",
+                  "data_type": "base.string"
+                },
+                {
+                  "name": "level",
+                  "data_type": "base.enum",
+                  "uuid": "ea591a25-3051-4763-a367-8525222e0795",
+                  "value": "INFO"
+                },
+                {
+                  "name": "send_to_orchestrator",
+                  "data_type": "base.bool",
+                  "uuid": "b2d15cb5-2742-44fa-a10e-e8b660bafa5c",
+                  "value": true
+                }
+              ],
+              "outputs": []
+            },
+            "title_max_lines_number": 1,
+            "title_fold_height": 22
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 13,
+                  "output": "out_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "out_exec": {
+              "connections": [
+                {
+                  "node": 15,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "position": [
+            -769.7639209117312,
+            1367.87020487885
+          ],
+          "name": "base.console_output"
+        },
+        "15": {
+          "id": 15,
+          "data": {
+            "input_socket_position": "top",
+            "output_socket_position": "bottom",
+            "uuid": "bb82e1ea-cc9c-4e01-89f3-8e375eda71fd",
+            "title": "Условие температура > 20 (да - жарко, нет - норм. темп.)",
+            "vars": {
+              "inputs": [
+                {
+                  "uuid": "a483b00a-1e7b-4a71-9bef-941a2b8ccfd5",
+                  "name": "condition",
+                  "value": "fl_temp > 20",
+                  "data_type": "base.string",
+                  "expression": true
+                }
+              ],
+              "outputs": []
+            },
+            "title_max_lines_number": 2,
+            "title_fold_height": 24
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 14,
+                  "output": "out_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "true_exec": {
+              "connections": [
+                {
+                  "node": 16,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            },
+            "false_exec": {
+              "connections": [
+                {
+                  "node": 17,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            },
+            "out_exec": {
+              "connections": []
+            }
+          },
+          "position": [
+            -787.327950033415,
+            1533.9413801376493
+          ],
+          "name": "base.branch"
+        },
+        "16": {
+          "id": 16,
+          "data": {
+            "version": 2,
+            "base_name": "datatable.update_row_item",
+            "input_socket_position": "top",
+            "output_socket_position": "bottom",
+            "uuid": "ace6a764-7924-437e-975d-1a9f29fb6b0e",
+            "title": "Обновить значение ячейки результат при True",
+            "vars": {
+              "inputs": [
+                {
+                  "ref": "329536e0-cdd7-41ae-84e9-d1f80d7db9f8",
+                  "uuid": "653a72e9-c3b0-4e93-8a3c-c85f0e9d487b",
+                  "name": "datatable",
+                  "data_type": "object.dataTable"
+                },
+                {
+                  "uuid": "ddb45fa3-96a9-428b-8614-70273d83e28e",
+                  "name": "row",
+                  "value": "",
+                  "data_type": "object.dataRow"
+                },
+                {
+                  "ref": "d1947c61-3e49-41c0-8329-72e0d512b01b",
+                  "uuid": "ad970117-c174-49c1-95b9-1015e95f1670",
+                  "name": "row_index",
+                  "data_type": "base.integer"
+                },
+                {
+                  "uuid": "2b1bbe36-9953-411e-8148-b34fce4ab095",
+                  "name": "column_name",
+                  "value": "результат",
+                  "data_type": "base.string"
+                },
+                {
+                  "uuid": "099d3f80-b4aa-4cc2-bbc4-922bfb58bb21",
+                  "name": "column_index",
+                  "value": null,
+                  "data_type": "base.integer"
+                },
+                {
+                  "uuid": "c7d12edb-6b65-4639-b0e5-006ea4b27118",
+                  "name": "value",
+                  "value": "Жарко",
+                  "data_type": "base.any"
+                }
+              ],
+              "outputs": [
+                {
+                  "ref": "",
+                  "uuid": "f17b0a8e-8510-44f8-a52c-c91b30d7f998",
+                  "name": "resulted_datatable",
+                  "data_type": "object.dataTable"
+                }
+              ]
+            },
+            "title_max_lines_number": 2,
+            "title_fold_height": 22
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 15,
+                  "output": "true_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "out_exec": {
+              "connections": []
+            }
+          },
+          "position": [
+            -914.2591318406768,
+            1841.0379125007596
+          ],
+          "name": "datatable.update_row_item.2"
+        },
+        "17": {
+          "id": 17,
+          "data": {
+            "version": 2,
+            "base_name": "datatable.update_row_item",
+            "input_socket_position": "top",
+            "output_socket_position": "bottom",
+            "uuid": "547b30c4-0471-4fb2-9298-d53277e7ab91",
+            "title": "Обновить значение ячейки результат при False",
+            "vars": {
+              "inputs": [
+                {
+                  "ref": "329536e0-cdd7-41ae-84e9-d1f80d7db9f8",
+                  "uuid": "5c32f37d-5d20-4742-abaa-cb7f770e5ba6",
+                  "name": "datatable",
+                  "data_type": "object.dataTable"
+                },
+                {
+                  "uuid": "2245521b-006e-4b90-a146-03e59ed18688",
+                  "name": "row",
+                  "value": "",
+                  "data_type": "object.dataRow"
+                },
+                {
+                  "ref": "d1947c61-3e49-41c0-8329-72e0d512b01b",
+                  "uuid": "f31beff4-26a8-40ce-af30-a1211880b601",
+                  "name": "row_index",
+                  "data_type": "base.integer"
+                },
+                {
+                  "uuid": "5bd75a82-161b-4134-97a0-b31731b19a9d",
+                  "name": "column_name",
+                  "value": "результат",
+                  "data_type": "base.string"
+                },
+                {
+                  "uuid": "38447cb4-9e2f-41cf-93f1-18941efed70e",
+                  "name": "column_index",
+                  "value": null,
+                  "data_type": "base.integer"
+                },
+                {
+                  "uuid": "bdde1898-86a9-4f3f-bfe5-b0e7211bb016",
+                  "name": "value",
+                  "value": "Норм. темп.",
+                  "data_type": "base.any"
+                }
+              ],
+              "outputs": [
+                {
+                  "ref": "",
+                  "uuid": "334b313b-0acc-4c41-b0a5-306db9aa8654",
+                  "name": "resulted_datatable",
+                  "data_type": "object.dataTable"
+                }
+              ]
+            },
+            "title_max_lines_number": 2,
+            "title_fold_height": 22
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 15,
+                  "output": "false_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "out_exec": {
+              "connections": []
+            }
+          },
+          "position": [
+            -396.52882950739775,
+            1830.721329029778
+          ],
+          "name": "datatable.update_row_item.2"
+        }
+      }
+    }
+  ],
+  "is_snippet": false,
+  "is_template": false,
+  "breakpoints": [],
+  "disabled_nodes": [],
+  "opened_graphs": [
+    "77f077bf-e193-484c-810c-adccf4115075"
+  ],
+  "own_nodes": {},
+  "expanded_nodes": [
+    "b7650520-7a4d-4e82-9943-0cb5bb2759ac",
+    "75dded47-08c3-4f9a-a63f-298354c2db06",
+    "f48262ed-9bb4-41ab-a245-bac2b727b5c9",
+    "3682eab8-150e-49ca-8d02-d71bdb15895f",
+    "5bb7d33d-1566-4bbd-8375-c387ff5756c0",
+    "de3ad30e-4b5c-4cb2-a96a-253338364f5a",
+    "662608a4-952d-4801-b814-94aca989e59a",
+    "9d148c38-3a24-4f3c-ae39-8f410121d831",
+    "c2f3cc20-2c3c-4888-a7dd-0bb11f9a1d44",
+    "758bb562-b9b6-4320-870b-ff300bb6d6e2",
+    "7bc41ec8-c2b3-4132-a297-62e40944a6fb",
+    "a18f5d26-82a9-46b9-89bc-e0a07a51b289",
+    "bb82e1ea-cc9c-4e01-89f3-8e375eda71fd",
+    "ace6a764-7924-437e-975d-1a9f29fb6b0e",
+    "547b30c4-0471-4fb2-9298-d53277e7ab91"
+  ],
+  "linked_accounts": [],
+  "snippet_robots": [],
+  "generated_at": "2025-11-18T09:45:08.828Z",
+  "latest_robot_version_uuid": "8fb10a29-62f1-469a-b356-2464c26676cc",
+  "latest_robot_version": {
+    "uuid": "8fb10a29-62f1-469a-b356-2464c26676cc",
+    "robot_uuid": "0ba784fe-3234-4ea9-804c-b8d1e424c2dd",
+    "robot_history_sha1": "cb111defd8379e48bb635077b7a43e7093651b7d",
+    "commit_message": "Сохранение после установки глоб. переменной",
+    "created_by": 2154,
+    "created_at": "2025-11-18T12:44:42.546Z",
+    "version_num": "0.127",
+    "version_type": "autosave",
+    "is_published": false,
+    "createdByUser": {
+      "id": 2154,
+      "name": "Астахов Сергей Павлович",
+      "login": "coteica555",
+      "email": "coteica555@gmail.com",
+      "is_active": true
+    },
+    "robot_history": {
+      "sha1": "cb111defd8379e48bb635077b7a43e7093651b7d",
+      "data": {
+        "name": "Robot_project3",
+        "verbose": false,
+        "is_snippet": false,
+        "breakpoints": [],
+        "description": "",
+        "is_template": false,
+        "py_libraries": [],
+        "opened_graphs": [
+          "77f077bf-e193-484c-810c-adccf4115075"
+        ],
+        "disabled_nodes": [],
+        "expanded_nodes": [
+          "b7650520-7a4d-4e82-9943-0cb5bb2759ac",
+          "75dded47-08c3-4f9a-a63f-298354c2db06",
+          "f48262ed-9bb4-41ab-a245-bac2b727b5c9",
+          "3682eab8-150e-49ca-8d02-d71bdb15895f",
+          "5bb7d33d-1566-4bbd-8375-c387ff5756c0",
+          "de3ad30e-4b5c-4cb2-a96a-253338364f5a",
+          "662608a4-952d-4801-b814-94aca989e59a",
+          "9d148c38-3a24-4f3c-ae39-8f410121d831",
+          "c2f3cc20-2c3c-4888-a7dd-0bb11f9a1d44",
+          "758bb562-b9b6-4320-870b-ff300bb6d6e2",
+          "7bc41ec8-c2b3-4132-a297-62e40944a6fb",
+          "a18f5d26-82a9-46b9-89bc-e0a07a51b289",
+          "bb82e1ea-cc9c-4e01-89f3-8e375eda71fd",
+          "ace6a764-7924-437e-975d-1a9f29fb6b0e",
+          "547b30c4-0471-4fb2-9298-d53277e7ab91"
+        ],
+        "default_timeout": null,
+        "linked_accounts": [],
+        "nodes_direction": "fromUptoDown",
+        "clear_log_before_run": false,
+        "created_by_front_version": "1.10.3",
+        "generated_by_front_version": "1.10.3"
+      }
+    }
+  },
+  "latest_published_robot_version": null,
+  "latest_published_robot_version_uuid": null
+}
