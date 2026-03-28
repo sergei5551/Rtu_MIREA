@@ -1,0 +1,31 @@
+Пользователи/пароли->
+---
+sqlplus /nolog
+connect sdf as sysdba
+shutdown
+---
+
+Создание каких-то файлов->
+---
+CREATE SPFILE FROM PFILE; (создает файл в C:\Oracle\product\11.2.0\dbhome_1\database\SPFILEORCL)
+---
+
+Просмотр ифнормации->
+---
+desc DATATABLE(describe просмотреть информацию о таблице)
+show parameter shared_
+show parameter control
+select count(*) from v$parameter; (сколько всего параметров, второй способ просмотреть параметры системы)
+startup
+startup mount (Нужны привилегии)
+startup force (Нужны привилегии)
+---
+
+Изменение информации->
+---
+ALTER SYSTEM SET shared_pool_size=100M;
+---
+
+
+oradim -delete -sid ORCL(удаляет службу)
+oradim -new -sid ORCL
