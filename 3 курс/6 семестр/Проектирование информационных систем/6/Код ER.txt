@@ -1,0 +1,137 @@
+@startuml
+' ------------------------------------------------------------
+' ER-диаграмма для системы торговли игровыми предметами
+' ------------------------------------------------------------
+
+!define Table(name) class name << (T,#FFE0B3) >>
+!define PK(x) <b><color:darkgreen>x (PK)</color></b>
+!define FK(x) <color:blue>x (FK)</color>
+
+' ------------------------------------------------------------
+' Сущности (таблицы)
+' ------------------------------------------------------------
+
+Table(Пользователь) {
+  PK(User_id)
+  login
+  Email
+  Password_hash
+  Steam_id
+  Balance
+  Rating
+  Created_at
+  Status
+}
+
+Table(Предмет) {
+  PK(Item_id)
+  Name
+  Game
+  Description
+  Rarity
+  Imange_url
+  FK(Owner_id)
+  Price
+  Status
+  Created_at
+}
+
+Table(Сделка) {
+  PK(Deal_id)
+  FK(Item_id)
+  FK(Buyer_id)
+  FK(Seller_id)
+  Price
+  Status
+  Created_at
+  Completed_at
+}
+
+Table(Транзакция) {
+  PK(Transaction_id)
+  FK(User_id)
+  Type
+  Amount
+  Commission
+  Status
+  Created_at
+}
+
+Table(Обзор) {
+  PK(Review_id)
+  FK(Deal_id)
+  FK(From_user_id)
+  FK(To_user_id)
+  Rating
+  Comment
+  Created_at
+}
+
+Table(Уведомление) {
+  PK(Notification_id)
+  FK(User_id)
+  Type
+  Message
+  Is_read
+  Created_at
+}
+
+Table(Арбитраж) {
+  PK(Arbitration_id)
+  FK(Deal_id)
+  FK(Initiator_id)
+  Status
+  Resolution
+  Created_at
+  Closed_at
+}
+
+Table(Система_логирования) {
+  PK(Log_id)
+  FK(User_id)
+  Action
+  Ip_address
+  Created_at
+}
+
+' ------------------------------------------------------------
+' Связи (Relationships)
+' ------------------------------------------------------------
+
+' 1) Пользователь — Предмет: 1:M
+Пользователь ||--o{ Предмет
+
+' 2) Пользователь — Сделка (как продавец): 1:M
+Пользователь ||--o{ Сделка
+
+' 3) Пользователь — Сделка (как покупатель): 1:M
+Пользователь ||--o{ Сделка
+
+' 4) Пользователь — Транзакция: 1:M
+Пользователь ||--o{ Транзакция
+
+' 5) Пользователь — Обзор (как отправитель): 1:M
+Пользователь ||--o{ Обзор
+
+' 6) Пользователь — Обзор (как получатель): 1:M
+Пользователь ||--o{ Обзор
+
+' 7) Пользователь — Уведомление: 1:M
+Пользователь ||--o{ Уведомление
+
+' 8) Пользователь — Арбитраж: 1:M
+Пользователь ||--o{ Арбитраж
+
+' 9) Пользователь — Система_логирования: 1:M
+Пользователь ||--o{ Система_логирования
+
+' 10) Предмет — Сделка: 1:M
+Предмет ||--o{ Сделка
+
+' 11) Сделка — Обзор: 1:M
+Сделка ||--o{ Обзор
+
+' 12) Сделка — Арбитраж: 1:1
+Сделка ||--|| Арбитраж
+
+@enduml

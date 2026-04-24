@@ -1,0 +1,169 @@
+flowchart TB
+linkStyle default interpolate linear
+
+%% ---------------- USER LEVEL ----------------
+subgraph USER["Пользовательский уровень"]
+UI[Веб-интерфейс]
+CAB[Личный кабинет]
+CAT[Каталог товаров]
+TRADE[Интерфейс сделок]
+ADMIN[Админ-панель]
+end
+
+
+%% ---------------- SERVER LEVEL ----------------
+subgraph SERVER["Серверный уровень"]
+AUTH[Подсистема пользова-
+телей и авторизации]
+CATALOG[Подсистема ката-
+лога товаров]
+DEALS[Подсистема упра-
+вления сделками]
+FIN[Подсистема финансо-
+вых операций]
+GAMEAPI[Интеграция с игро-
+выми платформами]
+SEC[Подсистема арбит-
+ража и безопасности]
+ADMINSYS[Подсистема адми-
+нистрирования]
+NOTIFY[Подсистема уведомлений]
+end
+
+
+%% ---------------- DATABASE ----------------
+subgraph DB["База данных"]
+
+USERS["users
+
+----------------
+id
+login
+email
+password_hash
+steam_id
+role
+balance
+rating
+created_at
+status"]
+
+ITEMS["items
+
+----------------
+id
+name
+game
+description
+rarity
+image_url
+owner_id
+price
+status
+created_at"]
+
+DEALS_T["deals
+
+----------------
+id
+item_id
+buyer_id
+seller_id
+price
+status
+created_at
+completed_at"]
+
+TRANS["transactions
+
+----------------
+id
+user_id
+type
+amount
+commission
+status
+created_at"]
+
+REVIEWS["reviews
+
+----------------
+id
+deal_id
+from_user
+to_user
+rating
+comment
+created_at"]
+
+NOTIFS["notifications
+
+----------------
+id
+user_id
+type
+message
+is_read
+created_at"]
+
+ARBITR["arbitrations
+
+----------------
+id
+deal_id
+initiator_id
+status
+resolution
+created_at
+closed_at"]
+
+LOGS["system_logs
+
+----------------
+id
+user_id
+action
+ip_address
+created_at"]
+
+end
+
+
+%% ---------------- EXTERNAL SYSTEMS ----------------
+subgraph EXT["Внешние системы"]
+STEAM[Steam Web API]
+PAY[Платежные системы]
+EMAIL[Email сервис]
+end
+
+
+%% USER -> SERVER
+UI -->|REST API| AUTH
+CAB -->|REST API| AUTH
+CAT -->|REST API | CATALOG
+TRADE -->|REST API| DEALS
+ADMIN -->|REST API| ADMINSYS
+
+
+%% SERVER INTERNAL
+CATALOG -->|API| DEALS
+DEALS -->|API| FIN
+DEALS -->|API| SEC
+ADMINSYS -->|API| SEC
+
+
+%% SERVER -> DATABASE
+AUTH -->|SQL| USERS
+CATALOG -->|SQL| ITEMS
+DEALS -->|SQL| DEALS_T
+FIN -->|SQL| TRANS
+DEALS -->|SQL| REVIEWS
+NOTIFY -->|SQL| NOTIFS
+SEC -->|SQL| ARBITR
+SEC -->|SQL| LOGS
+
+
+%% SERVER -> EXTERNAL
+GAMEAPI -->|API| STEAM
+FIN -->|API| PAY
+NOTIFY -->|SMTP| EMAIL
