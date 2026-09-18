@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:16
+    container_name: postgres_Astakhov_SP
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: student
+      POSTGRES_PASSWORD: student_pass
+      POSTGRES_DB: studentdb
+
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
